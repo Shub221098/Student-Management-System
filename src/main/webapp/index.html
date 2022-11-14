@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Shubham'scollege</title>
+<script type = "text/javascript">
+function setcookie(){
+	var u = document.getElementById('username').value;
+	var p = document.getElementById('password').value;
+	document.cookie = "myusername = "+u+";path =http://localhost:8082/StudentManagementSystem/";
+	document.cookie = "mypassword = "+p+";path =http://localhost:8082/StudentManagementSystem/";
+}
+function getcookiedata(){
+	console.log(document.cookie);
+	var user = getCookie('myusername');
+	var pswd = getCookie('mypassword');
+	
+	document.getElementById('username').value=user;
+	document.getElementById('password').value=pswd;
+}
+function getCookie(cname){
+	var name = cname + "=";
+	var decodedCookie = decodeURIComponent(document.cookie);
+	var ca = decodedCookie.split(";");
+	for(var i=0; i<ca.length;i++){
+		var c = ca[i];
+		while(c.charAt[0] == ' '){
+			c = c.substring(1);
+		}
+		if(c.indexOf(name) == 0){
+			return c.substring(name.length, c.length);
+		}
+	}
+	return "";
+}
+</script>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=5">
+<body>
+<div class = "container" style="background-image: url('Login_image.jpg'); width:1350px ; height:650px; text-align:center">
+<center>
+<form action = "login" method = "post"> 
+<fieldset style = "background-color: white; width:300px; display:center">
+<legend style="color:Orange display:center">Welcome to Shubham's College</legend>
+<h3 style = "color:Orange">LOGIN</h3> 
+<input type = "text" placeholder = "Enter Admin_Id" id ="username" name = "AId" required><br><br>
+<input type = "password" placeholder = "Enter Password" id = "password" name = "Pws" required><br><br> 
+<input type = "checkbox" onclick="setcookie()" placeholder = "Remember Me" name = "Remember">Remember Me <br><br>
+<button type = "submit" style = "color: blue">Login</button><br>
+<p class = "Pws"><a href="#" style = "color:#006400">Forgot password ?</a></p> 
+</fieldset>
+</form>
+</center>
+</div>
+</body>
+</html>
